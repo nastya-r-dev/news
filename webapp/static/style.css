@@ -1,0 +1,205 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+a {
+    font-family: 'Montserrat', sans-serif;
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-decoration: none
+}
+.row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.col-1, .col-2, .col-3 {
+    padding: 0 15px;
+}
+
+.col-1 {
+    flex: 1;
+}
+
+.col-2 {
+    flex: 2;
+}
+
+.col-3 {
+    flex: 3;
+}
+
+.col-8 {
+    flex: 2;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2, h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.comment {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.comment-header {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-date {
+    float: right;
+}
+
+.comment-body {
+    margin-top: 10px;
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form input, .comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.comment-form button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #4cae4c;
+}
+.comments-section {
+    max-width: 600px;
+    margin: 50px 50px 50px 0;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Стили для таблиц */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table caption {
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.table thead th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Стили для кнопок */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+/* Дополнительные стили */
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-left: 15px;
+}
+
+
+/* Стили для новостей */
+.news-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.news-link:hover {
+    color: #0056b3;
+}
+
+.news-date {
+    color: #666;
+    font-size: 0.875em;
+    margin-bottom: 15px;
+}
+
+/* Стили для погоды */
+.weather-icon {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Медиа запросы для адаптивности */
+@media (max-width: 768px) {
+    .col-2, .col-4 {
+        flex: 1 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+

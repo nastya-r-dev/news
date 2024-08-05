@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-8">
+    {% if all_news %}
+      {% for news in all_news %}
+          <div><img alt="" src ="{{ news.img }}"  width="255" height="189"></div>
+          <h5><a target="_blank" href="{{ url_for('news.single_news', news_id=news.id) }}" class="news-link">{{ news.title }}</a></h5>
+          <p class="news-date"><small>{{ news.date.strftime('%Y-%m-%d %H:%M') }}</small></p>
+      {% endfor %}
+      {% for page in all_news.iter_pages() %}
+          {% if page %}
+              <a href="{{ url_for('news.index', page=page) }}">{{ page }}</a>
+          {% else %}
+              ...
+          {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="col-1">
+    {% if weather %}
+        <h5>Сейчас {{ weather.temp_C }} {{ city }}, ощущается как {{ weather.FeelsLikeC }}</h5>
+        <img class="weather-icon" src="{{ weather.weatherIconUrl[0].value }}">
+    {% else %}
+        <h5>Сервис погоды временно недоступен</h5>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

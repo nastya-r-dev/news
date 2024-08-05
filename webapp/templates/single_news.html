@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 theme-ngs">
+        <article class="article_dzCDV pb-6">
+            {{ news.text|safe }}
+        </article>
+        <div class="comments-section">
+            <h2>Комментарии {{ number }}</h2>
+            {% if comments %}
+                {% for comment in comments %}
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-author">{{ comment[1].first_name }} {{ comment[1].second_name }}</span>
+                            <span class="comment-date">{{ comment[0].created.strftime('%Y-%m-%d %H:%M') }} </span>
+                        </div>
+                        <div class="comment-body">
+                            {{ comment[0].text }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% if current_user.is_authenticated %}
+                <form class="comment-form" action="{{ url_for('news.save_comment_process') }}" method="post">
+                    <h3>Оставить комментарий</h3>
+                    <textarea placeholder="Ваш комментарий" name = 'text' required></textarea>
+                    <input type="hidden" id="user_id" name="user_id" value={{ current_user.id }}>
+                    <input type="hidden" id="news_id" name="news_id" value={{ news.id }} >
+                    <button type="submit">Отправить</button>
+                </form>
+            {% else %}
+                <p>Чтобы оставить комментарий - <a href="{{ url_for('user.login') }}">авторизуйтесь</a> или <a href="{{ url_for('user.register') }}">зарегистрируйтесь</a></p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>
+{% endblock content %}

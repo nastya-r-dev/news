@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-3">
+        {% if users %}
+            <form action="{{ url_for('admin.change_right_process') }}" method="post">
+                <table class="table table-bordered  border-primary table-hover">
+                  <caption>Пользователи</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Логин</th>
+                      <th scope="col">Статус</th>
+                      <th scope="col">Сделать модератором</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for user in users %}
+                          {% if user.status == 'user' %}
+                              <tr>
+                                  <th scope="row">{{ user.login }}</th>
+                                  <th scope="row">{{ user.status }}</th>
+                                  <th scope="row">
+                                      <input type="checkbox" name={{user.id}} value="moderator" />
+                                  </th>
+                              </tr>
+                          {% endif %}
+                      {% endfor %}
+                  </tbody>
+                </table>
+                <button type="submit" class="btn btn-success">Сохранить</button>
+          </form>
+      {% endif %}
+    </div>
+  <div class="col-3">
+      {% if users %}
+            <form action="{{ url_for('admin.change_right_process') }}" method="post">
+                <table class="table table-bordered  border-primary table-hover">
+                  <caption>Модераторы</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Логин</th>
+                      <th scope="col">Статус</th>
+                      <th scope="col">Забрать права модератора</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for user in users %}
+                          {% if user.status == 'moderator' %}
+                              <tr>
+                                  <th scope="row">{{ user.login }}</th>
+                                  <th scope="row">{{ user.status }}</th>
+                                  <th scope="row">
+                                      <input type="checkbox"  name={{user.id}} value="user" />
+                                  </th>
+                              </tr>
+                          {% endif %}
+                      {% endfor %}
+                  </tbody>
+                </table>
+                <button type="submit" class="btn btn-success">Сохранить</button>
+          </form>
+      {% endif %}
+  </div>
+  <div class="col-2"></div>
+</div>
+{% endblock %}

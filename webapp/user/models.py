@@ -1,0 +1,46 @@
+from flask_login import UserMixin # UserMixin это заготовленные таблицы с какими то методами и свойствами
+# во flask или django трубеется чтобы у каждого пользователя были 4 метода : is_authenticated ,is_active, is anonimus, get_id(is_authenticated противоположеный is_anonimus)
+from webapp.db import db
+from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
+
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    login = db.Column(db.String, nullable=False, unique=True, index=True)  # создает невидимую колонку где все login
+    # отсортированы по алфавиту
+    first_name = db.Column(db.String)
+    second_name = db.Column(db.String)
+    middle_name = db.Column(db.String)
+    birthday = db.Column(db.DateTime)
+    city = db.Column(db.String)
+    gender = db.Column(db.String)
+    email = db.Column(db.String)
+    password = db.Column(db.String, nullable=False)
+    status = db.Column(db.String, default='user')
+
+    @property
+    def is_admin(self):
+        return self.status == 'admin'
+
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+
+
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.Text, nullable=False)
+    created = db.Column(db.DateTime, nullable=False, default=datetime.now)
+    news_id = db.Column(
+        db.Integer,
+        db.ForeignKey('new.id', ondelete='CASCADE'),
+        index=True,
+    )
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey('user.id', ondelete='CASCADE'),
+        index=True,
+    )

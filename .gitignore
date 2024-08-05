@@ -1,0 +1,12 @@
+celerybeat-schedule.bak
+celerybeat-schedule.dat
+celerybeat-schedule.txt
+celerybeat-schedule.db
+celerybeat-schedule.dir
+webapp.db
+webapp/config.py
+__pycache__/
+webapp/__pycache__/
+env/
+migrations/
+.idea/
