@@ -10,35 +10,35 @@ class LoginForm(FlaskForm):
     login = StringField(
         'Имя пользователя',
         validators=[DataRequired()],
-        render_kw={'class': 'form-control'},
+        render_kw={'class': 'form-input'},
         )
     password = PasswordField(
         'Пароль',
         validators=[DataRequired()],
-        render_kw={'class': 'form-control'},
+        render_kw={'class': 'form-input'},
         )
-    remember_me = BooleanField('Запомнить меня', render_kw={'class': 'form-check-input'}, default=True)
+    remember_me = BooleanField('Запомнить меня', render_kw={'class': 'form-checkbox'}, default=True)
     submit = SubmitField('Войти', render_kw={'class': 'btn btn-primary'})
 
 
 class RegisterForm(FlaskForm):
-    login = StringField('Логин', validators=[DataRequired()], render_kw={'class': 'form-control'})
-    first_name = StringField('Имя', validators=[DataRequired()], render_kw={'class': 'form-control'})
-    second_name = StringField('Фамилия', validators=[DataRequired()], render_kw={'class': 'form-control'})
-    middle_name = StringField('Отчество', render_kw={'class': 'form-control'})
-    birthday = DateField("Дата Рождения",  render_kw={'class': 'form-control'})
-    city = StringField('Город', validators=[DataRequired()], render_kw={'class': 'form-control'})
-    gender = SelectField('Пол', choices=[('f', 'Женский'), ('m', 'Мужской')], render_kw={'class': 'form-control'})
-    email = StringField("Email ", validators=[Email(), DataRequired()], render_kw={'class': 'form-control'})
+    login = StringField('Логин', validators=[DataRequired()], render_kw={'class': 'form-input'})
+    first_name = StringField('Имя', validators=[DataRequired()], render_kw={'class': 'form-input'})
+    second_name = StringField('Фамилия', validators=[DataRequired()], render_kw={'class': 'form-input'})
+    middle_name = StringField('Отчество', render_kw={'class': 'form-input'})
+    birthday = DateField("Дата Рождения",  render_kw={'class': 'form-input'})
+    city = StringField('Город', validators=[DataRequired()], render_kw={'class': 'form-input'})
+    gender = SelectField('Пол', choices=[('f', 'Женский'), ('m', 'Мужской')], render_kw={'class': 'form-input'})
+    email = StringField("Email ", validators=[Email(), DataRequired()], render_kw={'class': 'form-input'})
     password = PasswordField(
         'Пароль',
         validators=[DataRequired()],
-        render_kw={'class': 'form-control'},
+        render_kw={'class': 'form-input'},
         )
     password2 = PasswordField(
         'Повторите пароль',
         validators=[DataRequired(), EqualTo('password', 'Пароли не совпадают')],
-        render_kw={'class': 'form-control'},
+        render_kw={'class': 'form-input'},
         )
 
     submit = SubmitField('Зарегистрироваться', render_kw={'class': 'btn btn-primary'})

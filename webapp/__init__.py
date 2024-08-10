@@ -6,6 +6,8 @@ from webapp.news.views import blueprint as news_blueprint
 from webapp.user.models import User
 from webapp.user.views import blueprint as user_blueprint
 from webapp.admin.views import blueprint as admin_blueprint
+from webapp.news.utils.weather import get_weather_by_city
+from transliterate import translit
 
 
 def create_app():
@@ -31,6 +33,13 @@ def create_app():
     app.register_blueprint(news_blueprint)
     app.register_blueprint(user_blueprint)
     app.register_blueprint(admin_blueprint)
+
+    @app.context_processor
+    def get_weather():
+        # city = current_user.city if current_user.is_authenticated else 'Москва'
+        city = 'Москва'
+        weather = get_weather_by_city(translit(city, language_code='ru', reversed=True))
+        return dict(city=city, weather=weather)
 
     return app
 

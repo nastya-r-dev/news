@@ -8,20 +8,18 @@ from transliterate import translit
 
 blueprint = Blueprint('news', __name__)
 
-
 @blueprint.route('/<int:page>')
 def index(page):
-    per_page = 8
-    title = 'Новости'
-    city = current_user.city if current_user.is_authenticated else 'Москва'
-    weather = get_weather_by_city(translit(city, language_code='ru', reversed=True))
-    all_news = New.query.order_by(New.date.desc()).paginate(page=page, per_page=per_page, error_out=False)
+    per_page = 9
+    title = 'TodayNews'
+    news = New.query.order_by(New.date.desc())
+    all_news = news.paginate(page=page, per_page=per_page, error_out=False)
+    actual_news = list(news)[:4]
     return render_template(
         'index.html',
-        weather=weather,
         all_news=all_news,
-        title=title,
-        city=city
+        actual_news=actual_news,
+        title=title
     )
 
 

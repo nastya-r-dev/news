@@ -1,22 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="row">
-  <div class="col-3"></div>
-  <div class="col-4">
-    <form action="{{ url_for('user.login_process') }}" method="post">
+<div class="container">
+    <div class="form-box">
+        <div class="tabs">
+            <a href="{{ url_for('user.login') }}" class="tab {% if request.endpoint == 'user.login' %}active{% endif %}"><h3>Авторизация</h3></a>
+            <a href="{{ url_for('user.register') }}" class="tab {% if request.endpoint == 'user.register' %}active{% endif %}"><h3>Регистрация</h3></a>
+        </div>
+        <form action="{{ url_for('user.login_process') }}" method="post">
             {{ form.hidden_tag() }}
             <input type="hidden" name="url" value={{ referrer }}>
-            <div class="form-group">
-                {{ form.login.label }}<br>{{ form.login() }}
+            <div class="input-group">
+                <label for="login">Логин</label>
+                {{ form.login() }}
             </div>
-            <div class="form-group">
-                {{ form.password.label }}<br>{{ form.password() }}
+            <div class="input-group">
+                <label for="password">Пароль</label>
+                {{ form.password() }}
+                <span class="eye-icon">&#128065;</span>
             </div>
-            <div class="form-group">{{ form.remember_me() }} {{ form.remember_me.label }}</div>
-            {{ form.submit }}
-            <div>Если у вас нет аккаунта, <a href="{{ url_for('user.register') }}">зарегистрируйтесь</a></div>
-    </form>
-  </div>
-  <div class="col-2"></div>
+            <div class="checkbox-group">
+                {{ form.remember_me() }}
+                <label for="remember">Запомнить меня</label>
+            </div>
+            <button type="submit" class="login-button">Войти</button>
+        </form>
+    </div>
 </div>
+{#    <form action="{{ url_for('user.login_process') }}" method="post">#}
+{#            {{ form.hidden_tag() }}#}
+{#            <input type="hidden" name="url" value={{ referrer }}>#}
+{#            <div class="form-group">#}
+{#                {{ form.login.label }}<br>{{ form.login() }}#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                {{ form.password.label }}<br>{{ form.password() }}#}
+{#            </div>#}
+{#            <div class="form-group">{{ form.remember_me() }} {{ form.remember_me.label }}</div>#}
+{#            {{ form.submit }}#}
+{#            <div>Если у вас нет аккаунта, <a href="{{ url_for('user.register') }}">зарегистрируйтесь</a></div>#}
+{#    </form>#}
 {% endblock %}

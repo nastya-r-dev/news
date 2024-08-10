@@ -11,7 +11,7 @@ blueprint = Blueprint('user', __name__,
 @blueprint.route('/login')
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('news.index'))
+        return redirect(url_for('news.index', page=1))
     title = 'Авторизация'
     form = LoginForm()
     referrer = request.referrer
@@ -46,7 +46,7 @@ def logout():
 @blueprint.route('/register')
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('news.index'))
+        return redirect(url_for('news.index', page=1))
     form = RegisterForm()
     return render_template(
         'register.html',

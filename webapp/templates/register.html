@@ -1,45 +1,58 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="row">
-<div class="col-3"></div>
-<div class="col-4">
-  <form action="{{ url_for('user.register_process') }}" method="post">
-      <div class="form-group mt-5">
-          {{ form.hidden_tag() }}
-          {{ form.login.label }}
-          {{ form.login() }}
-      </div>
-      <div class="form-group">
-              {{ form.first_name.label }}<br>{{ form.first_name() }}
-      </div>
-      <div class="form-group">
-              {{ form.second_name.label }}<br>{{ form.second_name() }}
-      </div>
-      <div class="form-group">
-              {{ form.middle_name.label }}<br>{{ form.middle_name() }}
-      </div>
-      <div class="form-group">
-              {{ form.birthday.label }}<br>{{ form.birthday() }}
-      </div>
-      <div class="form-group">
-              {{ form.city.label }}<br>{{ form.city() }}
-      </div>
-      <div class="form-group">
-              {{ form.gender.label }}<br>{{ form.gender() }}
-      </div>
-      <div class="form-group">
-              {{ form.email.label }}<br>{{ form.email() }}
-      </div>
-      <div class="form-group">
-              {{ form.password.label }}<br>{{ form.password() }}
-      </div>
-      <div class="form-group">
-              {{ form.password2.label }}<br>{{ form.password2() }}
-      </div>
-      <br>
-      {{ form.submit }}
-  </form>
-</div>
-<div class="col-2"></div>
+<div class="container register">
+    <div class="form-box">
+        <div class="tabs">
+            <a href="{{ url_for('user.login') }}" class="tab {% if request.endpoint == 'user.login' %}active{% endif %}"><h3>Авторизация</h3></a>
+            <a href="{{ url_for('user.register') }}" class="tab {% if request.endpoint == 'user.register' %}active{% endif %}"><h3>Регистрация</h3></a>
+        </div>
+        <form action="{{ url_for('user.register_process') }}" method="post">
+            {{ form.hidden_tag() }}
+            <input type="hidden" name="url" value={{ referrer }}>
+            <div class="input-group">
+                <label for="login">{{ form.login.label }}</label>
+                {{ form.login() }}
+            </div>
+            <div class="input-group">
+                <label for="first_name">{{ form.first_name.label }}</label>
+                {{ form.first_name() }}
+            </div>
+            <div class="input-group">
+                <label for="second_name">{{ form.second_name.label }}</label>
+                {{ form.second_name() }}
+            </div>
+            <div class="input-group">
+                <label for="middle_name">{{ form.middle_name.label }}</label>
+                {{ form.middle_name() }}
+            </div>
+            <div class="input-group">
+                <label for="birthday">{{ form.birthday.label }}</label>
+                {{ form.birthday() }}
+            </div>
+            <div class="input-group">
+                <label for="city">{{ form.city.label }}</label>
+                {{ form.city() }}
+            </div>
+            <div class="input-group">
+                <label for="gender">{{ form.gender.label }}</label>
+                {{ form.gender() }}
+            </div>
+            <div class="input-group">
+                <label for="email">{{ form.email.label }}</label>
+                {{ form.email() }}
+            </div>
+            <div class="input-group">
+                <label for="password">{{ form.password.label }}</label>
+                {{ form.password() }}
+                <span class="eye-icon">&#128065;</span>
+            </div>
+            <div class="input-group">
+                <label for="password">{{ form.password2.label }}</label>
+                {{ form.password2() }}
+                <span class="eye-icon">&#128065;</span>
+            </div>
+            <button type="submit" class="login-button">Зарегистрироваться</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -1,205 +1,565 @@
+/* Основные стили для страницы */
+* {
+    font-family: 'Helvetica Neue', Georgia, serif; /* Шрифт */
+}
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 20px;
-    color: #333;
+    background-color: #F5F5F5;
 }
-a {
-    font-family: 'Montserrat', sans-serif;
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    text-decoration: none
-}
-.row {
-    margin-top: 20px;
+
+/* Стили для шапки сайта */
+.header-container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.col-1, .col-2, .col-3 {
-    padding: 0 15px;
+/* Стили для логотипа */
+.logo h1 {
+    padding: 55.5px 501px 55.5px 96px;
+    margin-bottom: 0;
+    font-size: 32px; /* Размер шрифта */
+    color: black;
+    font-weight: 700; /* Жирность шрифта */
+    -webkit-font-smoothing: antialiased; /* Улучшенное сглаживание для Webkit-браузеров */
+    -moz-osx-font-smoothing: grayscale; /* Улучшенное сглаживание для браузеров на базе Mozilla */
+    font-smoothing: antialiased; /* Общее свойство для сглаживания шрифтов */
+    text-rendering: optimizeLegibility; /* Оптимизация рендеринга текста */
 }
 
-.col-1 {
-    flex: 1;
+.logo span {
+    color: red;
 }
 
-.col-2 {
-    flex: 2;
+/* Стили для информации в шапке */
+.header-info {
+    display: flex;
+    align-items: center;
 }
 
-.col-3 {
-    flex: 3;
+.header-info span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    color: black
 }
-
-.col-8 {
-    flex: 2;
-    background-color: #ffffff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-h2, h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-.comment {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.comment-header {
-    font-size: 0.9em;
-    color: #555;
-}
-
-.comment-author {
-    font-weight: bold;
-}
-
-.comment-date {
-    float: right;
-}
-
-.comment-body {
-    margin-top: 10px;
-}
-
-.comment-form {
-    margin-top: 20px;
-}
-
-.comment-form input, .comment-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.comment-form button {
-    padding: 10px 15px;
-    border: none;
-    background-color: #5cb85c;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.comment-form button:hover {
-    background-color: #4cae4c;
-}
-.comments-section {
-    max-width: 600px;
-    margin: 50px 50px 50px 0;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-/* Стили для таблиц */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.table caption {
-    text-align: left;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 10px 0;
-}
-
-.table thead th {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    text-align: left;
-}
-
-.table tbody tr:nth-child(odd) {
-    background-color: #f9f9f9;
-}
-
-.table tbody tr:hover {
-    background-color: #f1f1f1;
-}
-
-.table th, .table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-/* Стили для кнопок */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #28a745;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #218838;
-}
-
-.btn:focus {
-    outline: none;
-}
-
-/* Дополнительные стили */
-input[type="checkbox"] {
-    transform: scale(1.2);
-    margin-left: 15px;
-}
-
-
-/* Стили для новостей */
-.news-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.news-link:hover {
-    color: #0056b3;
-}
-
-.news-date {
-    color: #666;
-    font-size: 0.875em;
-    margin-bottom: 15px;
-}
-
-/* Стили для погоды */
 .weather-icon {
     width: 50px;
     height: 50px;
-    display: block;
-    margin-top: 10px;
+    margin-right: 5px;
 }
 
-/* Медиа запросы для адаптивности */
-@media (max-width: 768px) {
-    .col-2, .col-4 {
-        flex: 1 0 100%;
-        max-width: 100%;
-        margin-bottom: 20px;
+.header-info h5 {
+    margin: 0 20px 0 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.header-info button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 96px;
+    margin-left: 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 100px;
+}
+button.admin {
+    margin-right: 0px
+}
+.header-info a{
+    text-decoration: none;
+    color: white;
+}
+.logo a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Стили для основного контента */
+main {
+    text-align: center;
+}
+main h1 {
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 76.35px;
+    color: black;
+    padding: 0 542px 0 96px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+main h1 .highlight {
+    color: red;
+}
+
+/* Стили для секции новостей */
+.news-section {
+    text-align: left;
+    margin: 100px 96px 70px 96px;
+}
+
+.news-container {
+    display: flex;
+    gap: 32px;
+}
+
+.small-news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    justify-content: space-between;
+}
+
+.news-item {
+    background-color: white;
+    border-radius: 32px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+.news-item.large {
+    /*flex: 2;*/
+    display: flex; /* Добавляем flexbox */
+    flex-direction:column;
+}
+
+.news-item.small {
+    display: flex; /* Добавляем flexbox */
+    gap: 15px; /* Разделяем изображение и текст */
+    /*flex: 1;*/
+}
+
+.news-item.large img {
+    width: 848px; !important;
+    height: 447px;
+    /*width: 100%;*/
+    /*height: auto;*/
+
+}
+
+.news-item.small img {
+    width: 412px;
+    height: 230.33px;
+    border-radius: 10px 0 0 10px;
+    object-fit: cover;
+}
+
+h2{
+    margin-bottom: 70px;
+    margin-left: 96px;
+    text-align: left;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 62.04px;
+
+}
+.logo h2 {
+    color: black;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 62.04px;
+    text-align: left;
+    margin-left:96px;
+    margin-bottom: 70px;
+
+}
+
+
+.all-news {
+    margin: 0 96px 40px 96px;
+}
+
+.all-news-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки */
+    gap: 28px; /* Расстояние между элементами */
+    justify-content: space-between;
+    text-align: left;
+}
+
+.all-news-item {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 32px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.all-news-item:hover {
+    transform: translateY(-5px);
+}
+
+.all-news-item img {
+    width: 265.33px;
+    height: 230px;
+    object-fit: cover; /* Масштабирует изображение и обрезает его, чтобы заполнить контейнер */
+    border-bottom: 1px solid #ddd; /* Разделение изображения и текста */
+}
+
+.news-content {
+    padding: 24px; /* Упрощено, чтобы соответствовать общему отступу */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.news-content h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    color: black;
+}
+
+.news-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.news-content p {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Шрифт */
+    font-size: 14px;
+    color: #999999;
+    margin: 15px 0 0 0; /* Отступ сверху для разделения заголовка и даты */
+}
+
+@media (max-width: 1024px) {
+    .all-news-container {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки на средних экранах */
     }
 }
 
+@media (max-width: 768px) {
+    .all-news-container {
+        grid-template-columns: 1fr; /* Одна колонка на маленьких экранах */
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: right; /* Центрируем пагинацию */
+    margin: 30px 96px 30px 0;
+    gap: 10px; /* Расстояние между ссылками */
+}
+
+.pagination-link {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-link:hover {
+    background-color: #007BFF; /* Цвет при наведении */
+    color: white; /* Цвет текста при наведении */
+    border-color: #007BFF;
+}
+
+.pagination-link.active {
+    background-color: #007BFF; /* Активная страница */
+    color: white;
+    border-color: #007BFF;
+}
+
+.pagination-ellipsis {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #999;
+}
+
+.pagination-link, .pagination-ellipsis {
+    cursor: pointer;
+}
+
+.comments-section a{
+    text-decoration: none;
+    color: blue;
+}
+
+.container {
+    background-color: white;
+    border-radius: 32px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 848px;
+    height: 735px;
+    padding: 112px 115px 100px 115px;
+    /*padding: 100px 115px 100px 115px;*/
+    /*gap: 90px;*/
+    /*border-radius: 32px 0px 0px 0px;*/
+    /*opacity: 0px;*/
+
+}
+
+.container.register {
+    height: auto;
+    /*padding: 100px 115px 100px 115px;*/
+    /*gap: 90px;*/
+    /*border-radius: 32px 0px 0px 0px;*/
+    /*opacity: 0px;*/
+
+}
+
+.form-box {
+    width: 100%;
+}
+
+.tabs {
+    display: flex;
+    margin-left: 87px;
+    margin-right: 87px;
+    /*margin: 100px 202px 90px 202px;*/
+}
+
+.tab {
+    text-decoration: none;
+    color: black;
+    margin-right: 40px;
+    margin-bottom: 105px;
+}
+.tab:last-child {
+    margin-right: 0; /* Убираем правый отступ у последней вкладки */
+}
+
+.tab h3{
+    font-size: 33px;
+    font-weight: 400;
+    line-height: 39.37px;
+    margin-bottom: 12px;
+
+}
+
+.tab.active {
+    border-bottom: 2px solid red;
+    font-weight: bold;
+}
+label {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    color: gray;
+}
+
+
+.input-group {
+}
+.form-box form{
+    margin: 0;
+}
+
+.form-input {
+    width: 618px;
+    height: 65px;
+    margin-bottom: 28px;
+    border: 1px solid #ddd;
+    /*border-radius: 8px;*/
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+    /*font-size: 16px;*/
+    /*transition: border-color 0.3s ease, box-shadow 0.3s ease;*/
+}
+
+.eye-icon {
+    position: absolute;
+    right: 15px;
+    top: 42px;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 29px;
+}
+
+.form-checkbox {
+    margin-right: 6px;
+    width: 18px;
+    height: 18px;
+    accent-color: red;
+}
+
+.login-button {
+    width: 618px;
+    height: 43px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: firebrick;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important; /* Замените 'white' на цвет фона вашего input */
+    -webkit-text-fill-color: black !important;
+}
+.article-section{
+    margin-left: 96px;
+}
+.article-section h5{
+    margin-top: 25px;
+}
+.comments-section{
+    width: 674px;
+    text-align: left;
+    background-color: white;
+    border-radius: 32px;
+    margin-top: 28px;
+    margin-left: 96px;
+    margin-bottom: 100px;
+    padding: 28px 28px 28px 28px;
+    /*box-shadow: black;*/
+
+}
+.comments-section h4{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.63px;
+    margin: 0;
+
+}
+.comment-form{
+    margin: 0;
+}
+.comment-form textarea{
+    width: 618px;
+    height: 43px;
+    border: solid #F5F5F5;
+    border-width: 0px 0px 2px 0px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    color: #999999;
+    padding-top: 12px;
+    margin-bottom: 28px;
+
+}
+.comment-form button{
+    width: 121px;
+    height: 43px;
+    padding: 12px 20px 12px 20px;
+    border-width: 0;
+    border-radius: 100px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+
+}
+.comment{
+    margin-bottom: 28px;
+}
+.comment-header{
+    color: #999999;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.comment-author{
+    color: #999999;
+}
+
+.admin-panel{
+    width: 1728px;
+    height: 124px;
+    margin-left: 96px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.admin-panel {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-panel caption {
+    caption-side: top;
+    text-align: left;
+    font-size: 24px;
+    color: #000;
+}
+.admin-panel table{
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+.admin-panel thead th {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+    height: 40px;
+    background-color: red;
+    padding: 10px;
+    text-align: center;
+}
+
+.admin-panel thead th:first-child {
+    border-radius: 32px 0 0 32px;
+}
+
+.admin-panel thead th:last-child {
+    border-radius: 0 32px 32px 0;
+}
+
+.admin-panel tbody td {
+    font-size: 16px;
+    color: #000;
+    padding: 10px;
+    text-align: center;
+}
+
+.admin-panel tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.admin-panel tbody tr:last-child {
+    border-bottom: none;
+}
+
+.admin-panel input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.admin-panel button{
+    width: 121px;
+    height: 43px;
+    padding: 12px 20px 12px 20px;
+    border-width: 0;
+    border-radius: 100px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.09px;
+
+}

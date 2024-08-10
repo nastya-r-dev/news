@@ -1,26 +1,23 @@
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url_for('news.index',page=1) }}">Новости</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            {% if current_user.is_authenticated %}
-                {% if current_user.is_admin %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.admin_index') }}">Личный кабинет</a>
-                    </li>
-                {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('user.logout') }}">Выйти</a>
-                </li>
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1><a href = "{{ url_for('news.index', page = 1) }}">Today<span>News</span></a></h1>
+        </div>
+        <div class="header-info">
+            {% if weather %}
+            <span><img class="weather-icon" src="{{ weather.weatherIconUrl[0].value }}">{{ city }} {{ weather.temp_C }}°, ощущается как {{ weather.FeelsLikeC }}°</span>
             {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('user.login') }}">Войти</a>
-                </li>
+                <h5>Сервис погоды временно недоступен</h5>
             {% endif %}
-        </ul>
-      </div>
+           {% if current_user.is_authenticated %}
+              {% if current_user.is_admin %}
+                 <button class="admin"><a href="{{ url_for('admin.admin_index') }}">Личный кабинет</a></button>
+              {% endif %}
+               <button><a href="{{ url_for('user.logout') }}">Выйти</a></button>
+            {% else %}
+                <a href="{{ url_for('user.login') }}"><button>Войти</button></a>
+            {% endif %}
+        </div>
     </div>
-</nav>
+</header>
+

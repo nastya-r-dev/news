@@ -25,7 +25,6 @@ def get_python_news():
             url = 'https://76.ru' + news.find('a')['href']
             date = news.find("div", {"class": "tzxtk"}).find('time')['datetime']
             img = news.find("picture", {"class": "_6zHZU oZtUo"}).find("img")['src']
-            print(img)
             try:
                 date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S')
             except ValueError:
