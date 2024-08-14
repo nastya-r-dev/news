@@ -422,7 +422,8 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: black !important;
 }
 .article-section{
-    margin-left: 96px;
+    margin-left: 200px;
+    margin-right: 400px;
 }
 .article-section h5{
     margin-top: 25px;

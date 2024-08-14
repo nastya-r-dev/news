@@ -72,7 +72,12 @@ def extract_article_content(html):
         'script',                                                # Сценарии JavaScript
         'link[rel="stylesheet"]',                                # Стили
         'div.hidden',                                            # Скрытые элементы
-        'span.hidden'                                            # Скрытые элементы
+        'span.hidden',                                           # Скрытые элементы
+        'div.d-flex.articleSubHeader_J4nOY.default_J4nOY.mb-6',
+        'div.wrapper_W7lmS',
+        'div.articleAuthors_423ch.mt-6',
+        'div.articleTags_5nnkh.mt-6',
+        'div.articleRemarkAboutMistake_ilBSy'
     ]
 
     for selector in selectors_to_remove:
