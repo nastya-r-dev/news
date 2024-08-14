@@ -128,26 +128,28 @@ main h1 .highlight {
 
 .news-item.large {
     /*flex: 2;*/
-    display: flex; /* Добавляем flexbox */
+    display: inline-flex;
     flex-direction:column;
+    min-width: 848px !important; /* Фиксированная ширина */
+    max-width: 848px !important;
 }
 
 .news-item.small {
     display: flex; /* Добавляем flexbox */
-    gap: 15px; /* Разделяем изображение и текст */
     /*flex: 1;*/
 }
 
 .news-item.large img {
-    width: 848px; !important;
+    /*!*width: 848px; !important;*!*/
+    /*height: 447px;*/
+    width: 848px;
     height: 447px;
-    /*width: 100%;*/
-    /*height: auto;*/
+
 
 }
 
 .news-item.small img {
-    width: 412px;
+    min-width: 412px !important;
     height: 230.33px;
     border-radius: 10px 0 0 10px;
     object-fit: cover;
