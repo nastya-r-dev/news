@@ -8,6 +8,11 @@ from transliterate import translit
 
 blueprint = Blueprint('news', __name__)
 
+@blueprint.route('/')
+def root():
+    # Перенаправление на первую страницу
+    return redirect(url_for('news.index', page=1))
+
 @blueprint.route('/<int:page>')
 def index(page):
     per_page = 9
