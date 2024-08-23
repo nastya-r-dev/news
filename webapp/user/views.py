@@ -1,11 +1,11 @@
 from flask import Blueprint, flash, redirect, render_template, url_for, request
-from flask_login import current_user, login_user, logout_user, login_required
+from flask_login import current_user, login_user, logout_user
 from webapp.user.models import User
 from webapp.db import db
 from webapp.user.forms import LoginForm, RegisterForm
 
 blueprint = Blueprint('user', __name__,
-                      url_prefix='/user')  # __name__ - наполняет блюпринт содержимым данного файла, user - название
+                      url_prefix='/user')
 
 
 @blueprint.route('/login')
@@ -26,7 +26,6 @@ def login():
 @blueprint.route('/login-process', methods=['POST'])
 def login_process():
     form = LoginForm()
-    # form = LoginForm(user)
     user = User.query.filter(User.login == form.login.data).first()
     if user and user.check_password(form.password.data):
         login_user(user, remember=form.remember_me.data)
@@ -58,9 +57,6 @@ def register():
 def register_process():
     form = RegisterForm()
     if form.validate_on_submit():
-        # form = RegisterForm(user)
-        # RegisterForm(User)
-        # User(form)
 
         new_user = User(
             login=form.login.data,
@@ -82,6 +78,4 @@ def register_process():
     for field, errors in form.errors.items():
         for error in errors:
             flash(f'{error}')
-    # if User.query.filter(User.login == form.login.data).count():
-    #     flash('Логин занят!')
     return redirect(url_for('user.register'))

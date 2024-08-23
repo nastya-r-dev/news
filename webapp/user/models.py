@@ -1,5 +1,4 @@
-from flask_login import UserMixin # UserMixin это заготовленные таблицы с какими то методами и свойствами
-# во flask или django трубеется чтобы у каждого пользователя были 4 метода : is_authenticated ,is_active, is anonimus, get_id(is_authenticated противоположеный is_anonimus)
+from flask_login import UserMixin
 from webapp.db import db
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
@@ -7,8 +6,7 @@ from datetime import datetime
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    login = db.Column(db.String, nullable=False, unique=True, index=True)  # создает невидимую колонку где все login
-    # отсортированы по алфавиту
+    login = db.Column(db.String, nullable=False, unique=True, index=True)
     first_name = db.Column(db.String)
     second_name = db.Column(db.String)
     middle_name = db.Column(db.String)

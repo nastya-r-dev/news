@@ -1,6 +1,6 @@
 /* Основные стили для страницы */
 * {
-    font-family: 'Helvetica Neue', Georgia, serif; /* Шрифт */
+    font-family: 'Helvetica Neue', Georgia, serif;
 }
 
 body {
@@ -18,9 +18,9 @@ body {
 .logo h1 {
     padding: 55.5px 501px 55.5px 96px;
     margin-bottom: 0;
-    font-size: 32px; /* Размер шрифта */
+    font-size: 32px;
     color: black;
-    font-weight: 700; /* Жирность шрифта */
+    font-weight: 700;
     -webkit-font-smoothing: antialiased; /* Улучшенное сглаживание для Webkit-браузеров */
     -moz-osx-font-smoothing: grayscale; /* Улучшенное сглаживание для браузеров на базе Mozilla */
     font-smoothing: antialiased; /* Общее свойство для сглаживания шрифтов */
@@ -130,18 +130,15 @@ main h1 .highlight {
     /*flex: 2;*/
     display: inline-flex;
     flex-direction:column;
-    min-width: 848px !important; /* Фиксированная ширина */
+    min-width: 848px !important;
     max-width: 848px !important;
 }
 
 .news-item.small {
-    display: flex; /* Добавляем flexbox */
-    /*flex: 1;*/
+    display: flex;
 }
 
 .news-item.large img {
-    /*!*width: 848px; !important;*!*/
-    /*height: 447px;*/
     width: 848px;
     height: 447px;
 
@@ -182,8 +179,8 @@ h2{
 
 .all-news-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Три колонки */
-    gap: 28px; /* Расстояние между элементами */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
     justify-content: space-between;
     text-align: left;
 }
@@ -205,12 +202,12 @@ h2{
 .all-news-item img {
     width: 265.33px;
     height: 230px;
-    object-fit: cover; /* Масштабирует изображение и обрезает его, чтобы заполнить контейнер */
-    border-bottom: 1px solid #ddd; /* Разделение изображения и текста */
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
 }
 
 .news-content {
-    padding: 24px; /* Упрощено, чтобы соответствовать общему отступу */
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -230,29 +227,29 @@ h2{
 }
 
 .news-content p {
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Шрифт */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     color: #999999;
-    margin: 15px 0 0 0; /* Отступ сверху для разделения заголовка и даты */
+    margin: 15px 0 0 0;
 }
 
 @media (max-width: 1024px) {
     .all-news-container {
-        grid-template-columns: repeat(2, 1fr); /* Две колонки на средних экранах */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .all-news-container {
-        grid-template-columns: 1fr; /* Одна колонка на маленьких экранах */
+        grid-template-columns: 1fr;
     }
 }
 
 .pagination {
     display: flex;
-    justify-content: right; /* Центрируем пагинацию */
+    justify-content: right;
     margin: 30px 96px 30px 0;
-    gap: 10px; /* Расстояние между ссылками */
+    gap: 10px;
 }
 
 .pagination-link {
@@ -268,13 +265,13 @@ h2{
 }
 
 .pagination-link:hover {
-    background-color: #007BFF; /* Цвет при наведении */
-    color: white; /* Цвет текста при наведении */
+    background-color: #007BFF;
+    color: white;
     border-color: #007BFF;
 }
 
 .pagination-link.active {
-    background-color: #007BFF; /* Активная страница */
+    background-color: #007BFF;
     color: white;
     border-color: #007BFF;
 }
@@ -302,20 +299,11 @@ h2{
     width: 848px;
     height: 735px;
     padding: 112px 115px 100px 115px;
-    /*padding: 100px 115px 100px 115px;*/
-    /*gap: 90px;*/
-    /*border-radius: 32px 0px 0px 0px;*/
-    /*opacity: 0px;*/
 
 }
 
 .container.register {
     height: auto;
-    /*padding: 100px 115px 100px 115px;*/
-    /*gap: 90px;*/
-    /*border-radius: 32px 0px 0px 0px;*/
-    /*opacity: 0px;*/
-
 }
 
 .form-box {
@@ -326,7 +314,6 @@ h2{
     display: flex;
     margin-left: 87px;
     margin-right: 87px;
-    /*margin: 100px 202px 90px 202px;*/
 }
 
 .tab {
@@ -336,7 +323,7 @@ h2{
     margin-bottom: 105px;
 }
 .tab:last-child {
-    margin-right: 0; /* Убираем правый отступ у последней вкладки */
+    margin-right: 0;
 }
 
 .tab h3{
@@ -370,10 +357,6 @@ label {
     height: 65px;
     margin-bottom: 28px;
     border: 1px solid #ddd;
-    /*border-radius: 8px;*/
-    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-    /*font-size: 16px;*/
-    /*transition: border-color 0.3s ease, box-shadow 0.3s ease;*/
 }
 
 .eye-icon {
@@ -418,7 +401,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px white inset !important; /* Замените 'white' на цвет фона вашего input */
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
     -webkit-text-fill-color: black !important;
 }
 .article-section{
@@ -437,7 +420,6 @@ input:-webkit-autofill:active {
     margin-left: 200px;
     margin-bottom: 100px;
     padding: 28px 28px 28px 28px;
-    /*box-shadow: black;*/
 
 }
 .comments-section h4{

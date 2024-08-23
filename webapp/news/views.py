@@ -1,10 +1,7 @@
 from flask import Blueprint, abort, render_template, request, redirect, url_for
 from webapp.news.models import New
-from webapp.news.utils.weather import get_weather_by_city
-from flask_login import current_user, login_user, logout_user, login_required
 from webapp.user.models import Comment, User
 from webapp.db import db
-from transliterate import translit
 
 blueprint = Blueprint('news', __name__)
 
